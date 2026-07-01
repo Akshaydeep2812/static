@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Tailors.in Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <main class="section">
+      <div class="dashboard-grid">
+        <aside class="dashboard-aside card">
+          <h2>Admin ERP</h2>
+          <p>Quick access to customer details, orders, and delivery workflow.</p>
+          <div class="metric-list">
+            <div class="metric">
+              <span>Total orders</span>
+              <strong id="metricOrders">0</strong>
+            </div>
+            <div class="metric">
+              <span>Open stitching</span>
+              <strong id="metricOpen">0</strong>
+            </div>
+            <div class="metric">
+              <span>Deliveries</span>
+              <strong id="metricDelivery">0</strong>
+            </div>
+          </div>
+        </aside>
+
+        <section class="dashboard-main card">
+          <div class="section-heading">
+            <h2>Order management</h2>
+            <p>Update stitching progress and track delivery readiness.</p>
+          </div>
+
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="card">
+          <div class="section-heading">
+            <h2>Customer details</h2>
+            <p>Sample customer list with email, phone, and latest order status.</p>
+          </div>
+
+          <ul class="customer-list" id="customerList"></ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <div class="section-heading">
+            <h2>Delivery workflow</h2>
+            <p>Manage deliveries and update rider assignments.</p>
+          </div>
+
+          <div class="delivery-grid" id="deliveryGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Admin dashboard prototype. Use this as a starting point for building your Java full stack ERP interface.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

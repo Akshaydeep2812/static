@@ -3,201 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List</title>
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #f6f8ff, #eef3ff);
-        color: #1f2937;
-      }
-
-      .app {
-        width: min(92vw, 560px);
-        padding: 2rem;
-        border-radius: 1.25rem;
-        background: #ffffff;
-        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-      }
-
-      h1 {
-        margin: 0 0 1rem;
-        font-size: 1.8rem;
-      }
-
-      form {
-        display: flex;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-      }
-
-      input {
-        flex: 1;
-        padding: 0.8rem 0.95rem;
-        border: 1px solid #d7def0;
-        border-radius: 999px;
-        font-size: 1rem;
-      }
-
-      button {
-        border: none;
-        border-radius: 999px;
-        cursor: pointer;
-        font-size: 0.95rem;
-      }
-
-      .add-btn {
-        padding: 0.8rem 1rem;
-        background: #2563eb;
-        color: white;
-      }
-
-      .toolbar {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 1rem;
-      }
-
-      .clear-btn {
-        padding: 0.55rem 0.9rem;
-        background: #e5e7eb;
-        color: #374151;
-      }
-
-      .clear-btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-      }
-
-      .todo-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
-        padding: 0.85rem 0.95rem;
-        border: 1px solid #e5e7eb;
-        border-radius: 0.9rem;
-        background: #f9fafb;
-      }
-
-      .todo-main {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        flex: 1;
-      }
-
-      .todo-item.completed .todo-text {
-        color: #6b7280;
-        text-decoration: line-through;
-      }
-
-      .check-btn,
-      .delete-btn {
-        width: 2rem;
-        height: 2rem;
-        display: grid;
-        place-items: center;
-      }
-
-      .check-btn {
-        background: #dcfce7;
-        color: #15803d;
-      }
-
-      .delete-btn {
-        background: #fee2e2;
-        color: #b91c1c;
-      }
-
-      .empty-state {
-        margin: 1rem 0 0;
-        color: #6b7280;
-        text-align: center;
-      }
-    </style>
+    <title>Tailors.in Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app">
-      <h1>Todo List</h1>
-      <form id="todo-form">
-        <input id="todo-input" type="text" placeholder="What needs to be done?" autocomplete="off" required />
-        <button class="add-btn" type="submit">Add</button>
-      </form>
-      <div class="toolbar">
-        <button class="clear-btn" id="clear-completed" type="button">Clear completed</button>
-      </div>
-      <ul id="todo-list"></ul>
-      <p class="empty-state" id="empty-state">No tasks yet. Add one above.</p>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="#status">Status</a>
+        <a href="#delivery">Delivery</a>
+        <a class="nav-cta" href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Tailor ERP & delivery prototype</p>
+          <h1>Tailors.in — custom tailoring with order tracking & delivery</h1>
+          <p class="hero-text">
+            Design your stitching menu, track order progress from cutting to packing, and provide a delivery workflow with customer and admin access.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="login.html">Customer Login</a>
+            <a class="button button-secondary" href="dashboard.html">Admin Dashboard</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-heading">
+          <h2>Outfit stitching catalog</h2>
+          <p>Showcase tailoring packages with pricing, delivery estimates, and sample fabric categories.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Shirts</h3>
+            <p>Custom shirts with fitting, stitching, and finishing.</p>
+            <div class="price">₹799</div>
+          </article>
+
+          <article class="card">
+            <h3>Pants</h3>
+            <p>Formal and casual pants with waist and length tailoring.</p>
+            <div class="price">₹899</div>
+          </article>
+
+          <article class="card">
+            <h3>Suits</h3>
+            <p>Complete suit package for weddings and business events.</p>
+            <div class="price">₹2,999</div>
+          </article>
+
+          <article class="card">
+            <h3>Kurtas</h3>
+            <p>Traditional kurtas with embroidery and tailoring options.</p>
+            <div class="price">₹1,099</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="status" class="section gray-bg">
+        <div class="section-heading">
+          <h2>Stitching order status</h2>
+          <p>Track every order through cutting, stitching, ironing, and packing.</p>
+        </div>
+
+        <div class="status-flow">
+          <div class="status-step status-active">1. Cutting</div>
+          <div class="status-step">2. Stitching</div>
+          <div class="status-step">3. Stitching Complete</div>
+          <div class="status-step">4. Ironing</div>
+          <div class="status-step">5. Packing</div>
+        </div>
+
+        <div class="status-panel">
+          <div>
+            <strong>Order ID:</strong> TLR-1024
+          </div>
+          <div>
+            <strong>Current stage:</strong> Stitching
+          </div>
+          <div>
+            <strong>Expected completion:</strong> 2 days
+          </div>
+        </div>
+      </section>
+
+      <section id="delivery" class="section">
+        <div class="section-heading">
+          <h2>Delivery system</h2>
+          <p>Define your delivery routes, assign riders, and show current delivery status.</p>
+        </div>
+
+        <div class="delivery-grid">
+          <article class="delivery-card">
+            <h3>Order TLR-1024</h3>
+            <p>Delivery address: 14 Rosewood Lane, Mumbai</p>
+            <p>Status: Out for delivery</p>
+            <p>Rider: Akash</p>
+          </article>
+          <article class="delivery-card">
+            <h3>Order TLR-1008</h3>
+            <p>Delivery address: 82 Green Avenue, Pune</p>
+            <p>Status: Packing</p>
+            <p>ETA: 5 hours</p>
+          </article>
+          <article class="delivery-card">
+            <h3>Order TLR-1031</h3>
+            <p>Delivery address: 23 Lake View, Bangalore</p>
+            <p>Status: Ready for pickup</p>
+            <p>Rider: Meera</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section showcase">
+        <div class="section-heading">
+          <h2>Prototype pages</h2>
+          <p>Use the sample login and dashboard pages to start your Java full stack implementation.</p>
+        </div>
+
+        <div class="showcase-actions">
+          <a class="button button-secondary" href="login.html">Login prototype</a>
+          <a class="button button-secondary" href="dashboard.html">Admin dashboard</a>
+        </div>
+      </section>
     </main>
 
-    <script>
-      const storageKey = "basic-todo-list";
-      const form = document.getElementById("todo-form");
-      const input = document.getElementById("todo-input");
-      const todoList = document.getElementById("todo-list");
-      const emptyState = document.getElementById("empty-state");
-      const clearCompletedBtn = document.getElementById("clear-completed");
+    <footer class="site-footer">
+      <p>Static prototype for Tailors.in. Convert this structure into Spring Boot + React/Thymeleaf and connect to a database for a full Java stack implementation.</p>
+    </footer>
 
-      let todos = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    <script src="script.js"></script>
+  </body>
+</html>
 
-      function saveTodos() {
-        localStorage.setItem(storageKey, JSON.stringify(todos));
-        render();
-      }
-
-      function render() {
-        todoList.innerHTML = "";
-
-        if (todos.length === 0) {
-          emptyState.style.display = "block";
-          clearCompletedBtn.disabled = true;
-          return;
-        }
-
-        emptyState.style.display = "none";
-        clearCompletedBtn.disabled = !todos.some((todo) => todo.completed);
-
-        todos.forEach((todo) => {
-          const li = document.createElement("li");
-          li.className = `todo-item${todo.completed ? " completed" : ""}`;
-
-          li.innerHTML = `
-            <div class="todo-main">
-              <button class="check-btn" type="button" data-action="toggle" data-id="${todo.id}" aria-label="Mark as complete">
-                ${todo.completed ? "✓" : "○"}
-              </button>
-              <span class="todo-text">${todo.text}</span>
-            </div>
-            <button class="delete-btn" type="button" data-action="delete" data-id="${todo.id}" aria-label="Delete task">✕</button>
-          `;
-
-          todoList.appendChild(li);
-        });
-      }
-
-      function addTodo(text) {
-        const trimmed = text.trim();
         if (!trimmed) return;
 
         todos.unshift({

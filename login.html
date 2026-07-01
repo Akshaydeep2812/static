@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Tailors.in Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section" style="max-width: 540px; margin: 0 auto;">
+        <div class="section-heading">
+          <h2>Login</h2>
+          <p>Access the system using email or mobile number. Use admin or customer to simulate different journeys.</p>
+        </div>
+
+        <form id="loginForm" class="card login-card">
+          <label>
+            <span>Login type</span>
+            <select id="role" required>
+              <option value="customer">Customer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Email or mobile number</span>
+            <input id="identity" type="text" placeholder="name@example.com or 9876543210" required />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input id="password" type="password" placeholder="Enter password" required />
+          </label>
+
+          <button class="button button-primary" type="submit">Continue</button>
+
+          <p class="login-hint">Admin: choose "Admin" then submit to open the dashboard. Customer login returns to homepage for status lookup.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Prototype login page. Later replace with Java Spring Security and database-backed users.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

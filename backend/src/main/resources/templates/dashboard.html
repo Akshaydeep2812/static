@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailors.in | Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/login}">Login</a>
+      </nav>
+    </header>
+
+    <main class="section">
+      <div class="dashboard-grid">
+        <aside class="dashboard-aside card">
+          <h2>Admin ERP</h2>
+          <p>Customer and order overview.</p>
+          <div class="metric-list">
+            <div class="metric">
+              <span>Total orders</span>
+              <strong th:text="${orders.size()}">0</strong>
+            </div>
+            <div class="metric">
+              <span>In progress</span>
+              <strong th:text="${orders.stream().filter(o -> !o.status.equals('Packing')).count()}">0</strong>
+            </div>
+            <div class="metric">
+              <span>Delivery items</span>
+              <strong th:text="${orders.size()}">0</strong>
+            </div>
+          </div>
+        </aside>
+
+        <section class="dashboard-main card">
+          <div class="section-heading">
+            <h2>Order management</h2>
+            <p>Update stitching and delivery progress from the dashboard.</p>
+          </div>
+
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.customerName}"></td>
+                <td th:text="${order.item}"></td>
+                <td th:text="${order.status}"></td>
+                <td>
+                  <button class="button button-secondary advance-order" type="button" th:data-order="${order.id}">Next step</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="card">
+          <div class="section-heading">
+            <h2>Customer details</h2>
+            <p>View customer contact details and order links.</p>
+          </div>
+
+          <ul class="customer-list">
+            <li class="customer-item" th:each="customer : ${customers}">
+              <strong th:text="${customer.name}"></strong>
+              <span th:text="${customer.email}"></span>
+              <span th:text="${customer.phone}"></span>
+              <span>Order: <span th:text="${customer.orderId}"></span></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <div class="section-heading">
+            <h2>Delivery workflow</h2>
+            <p>Manage riders and delivery inventory.</p>
+          </div>
+          <div class="delivery-grid" th:each="order : ${orders}">
+            <article class="delivery-card">
+              <h3 th:text="${order.id}"></h3>
+              <p><strong>Address:</strong> <span th:text="${order.address}"></span></p>
+              <p><strong>Rider:</strong> <span th:text="${order.rider}"></span></p>
+              <p><strong>Delivery status:</strong> <span th:text="${order.deliveryStatus}"></span></p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Admin dashboard prototype for Tailors.in. Use this to build your ERP UI.</p>
+    </footer>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

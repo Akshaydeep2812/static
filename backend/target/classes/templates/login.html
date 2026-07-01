@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailors.in | Login</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/admin}">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section" style="max-width: 540px; margin: 0 auto;">
+        <div class="section-heading">
+          <h2>Login</h2>
+          <p>Admin or customer login using email or mobile number.</p>
+        </div>
+
+        <form class="card login-card" th:action="@{/login}" method="post">
+          <label>
+            <span>Role</span>
+            <select name="role" required>
+              <option value="CUSTOMER">Customer</option>
+              <option value="ADMIN">Admin</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Email or mobile number</span>
+            <input name="identity" type="text" placeholder="name@example.com or 9876543210" required />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" placeholder="Enter password" required />
+          </label>
+
+          <button class="button button-primary" type="submit">Login</button>
+
+          <p class="login-hint">Admin: use admin@tailors.in / admin123. Customer: customer@tailors.in / customer123.</p>
+          <p class="error-message" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Spring Boot login flow with Thymeleaf. Connect this to Spring Security later.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailors.in | Home</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">tailors.<span>in</span></div>
+      <nav class="top-nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/admin}">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Tailor ERP Prototype</p>
+          <h1>Tailors.in — order status tracking and delivery management</h1>
+          <p class="hero-text">
+            Use this Thymeleaf prototype to start your Java full stack implementation with Spring Boot backend and front-end templates.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" th:href="@{/login}">Login</a>
+            <a class="button button-secondary" th:href="@{/admin}">Admin Dashboard</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-heading">
+          <h2>Outfit stitching catalog</h2>
+          <p>Present prices and tailoring packages for customers.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Shirts</h3>
+            <p>Custom-fitted shirt stitching with pattern support.</p>
+            <div class="price">₹799</div>
+          </article>
+          <article class="card">
+            <h3>Pants</h3>
+            <p>Tailored pants for formal and casual styling.</p>
+            <div class="price">₹899</div>
+          </article>
+          <article class="card">
+            <h3>Suits</h3>
+            <p>Complete suit set with jacket, waistcoat, and pants.</p>
+            <div class="price">₹2,999</div>
+          </article>
+          <article class="card">
+            <h3>Kurtas</h3>
+            <p>Traditional kurtas with modern finishing.</p>
+            <div class="price">₹1,099</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section gray-bg" id="status">
+        <div class="section-heading">
+          <h2>Stitching status flow</h2>
+          <p>Track each order step in the tailoring process.</p>
+        </div>
+
+        <div class="status-panel">
+          <h3>Active orders</h3>
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Delivery</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.item}"></td>
+                <td th:text="${order.status}"></td>
+                <td th:text="${order.deliveryStatus}"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="delivery">
+        <div class="section-heading">
+          <h2>Delivery assignments</h2>
+          <p>Delivery rider status and order locations.</p>
+        </div>
+        <div class="delivery-grid">
+          <article class="delivery-card" th:each="order : ${orders}">
+            <h3 th:text="${order.id}"></h3>
+            <p><strong>Customer:</strong> <span th:text="${order.customerName}"></span></p>
+            <p><strong>Rider:</strong> <span th:text="${order.rider}"></span></p>
+            <p><strong>Location:</strong> <span th:text="${order.address}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${order.deliveryStatus}"></span></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Prototype with Spring Boot + Thymeleaf. Build your Java full stack backend from here.</p>
+    </footer>
+  </body>
+</html>
